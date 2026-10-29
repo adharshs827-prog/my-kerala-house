@@ -973,7 +973,8 @@ function frame(){requestAnimationFrame(frame);const dt=Math.min(clock.getDelta()
   if(cur){const n=performance.now();if(n-lastMoney>3000){lastMoney=n;money=Math.max(0,money-2);$('money').textContent='💰 ₹'+money}
    if(Math.abs(cur.userData.speed)>2)for(const p of npcs)if(cur.position.distanceTo(p.position)<1.8){arrest();break}}
   moveTraffic(dt);moveNPCs(clock.elapsedTime);templeAudio();touristAudio();ui()}
- waterTick();envTick(dt)sunFollow(); home(); worldTick(dt);
+waterTick(); envTick(dt); sunFollow(); home(); worldTick(dt);
+
 if(!paused){autoTick(dt);questTick()}remoteTick();poiTick(dt);engineUpdate();cameraUpdate(dt);if(shakeT>0){cam.position.x+=(Math.random()-.5)*shakeT;cam.position.y+=(Math.random()-.5)*shakeT*.6;shakeT-=dt*1.4}ren.render(scene,cam)}
 cam.position.set(0,4,-8);$('load').style.display='none';ui();frame();
 })();
